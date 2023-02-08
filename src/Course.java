@@ -1,38 +1,37 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Course<gradeType> {
-    private String courseName;
+public class Course {
+    private String COURSENAME;
 
     private char courseBlock;
 
-    private CourseGradebook gradebook;
+    private HashMap<String, AssignmentGradebook> gradebook;
+
     private boolean isPassFail;
 
-    public Course(String courseName, char courseBlock, CourseGradebook gradebook, boolean isPassFail) {
-        this.courseName = courseName;
+    public Course(String courseName, char courseBlock, HashMap<String, AssignmentGradebook> gradebook,
+            boolean isPassFail) {
+        this.COURSENAME = courseName;
         this.courseBlock = courseBlock;
         this.gradebook = gradebook;
         this.isPassFail = isPassFail;
     }
 
     public String getCourseName() {
-        return this.courseName;
+        return this.COURSENAME;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public double calculateClassAverage() {
+        double sum = 0.0;
+        for (AssignmentGradebook assignmentGradebook : gradebook.values())
+            sum += assignmentGradebook.getGradeAverage();
+        return sum / gradebook.size();
+
     }
 
     public void printGrades() {
         System.out.println(gradebook.toString());
-    }
-
-    public void setGrades(ArrayList<gradeType> grades) {
-        System.out.println();
-    }
-
-    public int calculateAverage(ArrayList<gradeType> grades) {
-        return -1;
     }
 
     public void addGrade(int grade) {

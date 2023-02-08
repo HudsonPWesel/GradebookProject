@@ -1,40 +1,17 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Student {
     private String name;
     private int graduationYear;
-    private StudentGradebook gradebook;
+    private ArrayList<String> courses = new ArrayList<String>();
+    private HashMap<String, Integer> gradebook = new HashMap<String, Integer>();
 
-    public Student(String name, int graduationYear, StudentGradebook gradebook) {
+    public Student(String name, int graduationYear, ArrayList<String> courses) {
         this.name = name;
         this.graduationYear = graduationYear;
-        this.gradebook = gradebook;
-    }
+        // TODO: SET GRADEBOOK
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getGraduationYear() {
-        return graduationYear;
-    }
-
-    public void setGraduationYear(int graduationYear) {
-        this.graduationYear = graduationYear;
-    }
-
-    public StudentGradebook getGradebook() {
-        return gradebook;
-    }
-
-    public void setGradebook(StudentGradebook courses) {
-        this.gradebook = courses;
-    }
-
-    public void reclass() {
-        graduationYear -= 1;
     }
 
 }
