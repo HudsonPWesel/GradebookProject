@@ -1,28 +1,31 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Course {
+
     private String COURSENAME;
 
-    private char courseBlock;
-
+    // Studentname: Assignment
     private HashMap<String, AssignmentGradebook> gradebook;
 
-    private boolean isPassFail;
-
-    public Course(String courseName, char courseBlock, HashMap<String, AssignmentGradebook> gradebook,
-            boolean isPassFail) {
+    public Course(String courseName, HashMap<String, AssignmentGradebook> gradebook) {
         this.COURSENAME = courseName;
-        this.courseBlock = courseBlock;
         this.gradebook = gradebook;
-        this.isPassFail = isPassFail;
     }
 
     public String getCourseName() {
         return this.COURSENAME;
     }
 
-    public double calculateClassAverage() {
+    public HashMap<String, AssignmentGradebook> getGradebook() {
+        return gradebook;
+    }
+
+    public AssignmentGradebook getAssignmentsByStudent(String studentName) {
+        return gradebook.get(studentName);
+
+    }
+
+    private double calculateClassAverage() {
         double sum = 0.0;
         for (AssignmentGradebook assignmentGradebook : gradebook.values())
             sum += assignmentGradebook.getGradeAverage();
