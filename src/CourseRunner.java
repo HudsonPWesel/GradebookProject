@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CourseRunner {
 
-    public static void initCourses(ArrayList<String> coursesNames) {
+    public static void initCourses(ArrayList<Course> courses) {
         try {
             Scanner sc = new Scanner(new File("/Users/hwesel23/Dropbox/Adv Java/Projects/ArrayList/src/courses.csv"));
             while (sc.hasNextLine()) {
