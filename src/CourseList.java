@@ -8,14 +8,17 @@ public class CourseList {
     private static HashMap<String, Course> courses = new HashMap<String, Course>();
 
     public static void setCourses(ArrayList<String> coursenames, ArrayList<Character> courseBlocks,
-            ArrayList<HashMap<String, AssignmentGradebook>> gradebooks, ArrayList<Boolean> isPassFailList) {
+            ArrayList<HashMap<String, AssignmentGradebook>> gradebooks) {
         for (int i = 0; i < coursenames.size() - 1; i++) {
-            courses.put(coursenames.get(i), new Course(
-                    coursenames.get(i),
-                    courseBlocks.get(i),
-                    gradebooks.get(i),
-                    isPassFailList.get(i)));
+            continue;
+            // courses.put(coursenames.get(i), new Course(
+            // coursenames.get(i),
+            // courseBlocks.get(i),
+            // gradebooks.get(i),
+            // isPassFailList.get(i)));
+            // }
         }
+
     }
 
     public Course getCourse(String courseName) {
@@ -35,5 +38,4 @@ public class CourseList {
         }
         return studentCourses;
     }
-
 }

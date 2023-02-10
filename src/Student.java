@@ -9,7 +9,7 @@ public class Student {
     private HashMap<String, Double> gradebook = new HashMap<String, Double>();
     private final int STUDENT_ID = (int) (Math.random() * 120000) + 1;
 
-    public Student(String name, int graduationYear, ArrayList<String> courses) {
+    public Student(int graduationYear, String name, ArrayList<String> courses) {
         this.name = name;
         this.graduationYear = graduationYear;
 
