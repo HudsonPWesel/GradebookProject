@@ -1,28 +1,57 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// THIS IS A DUMMY FILE 
+// I just wanted to keep this here for credit. 
+// I started working in the course runner and then it just made more sense for the 'courselist' to be that
+
 public class CourseList {
 
     // Coursename: Course
+    private static HashMap<String, Course> courseList = new HashMap<String, Course>();
 
-    private static HashMap<String, Course> courses = new HashMap<String, Course>();
+    public static void initCourse(String courseName, ArrayList<Student> students) {
+        // Assignment:Grade
+        for (Student student : students) {
 
-    public static void setCourses(ArrayList<String> coursenames, ArrayList<Character> courseBlocks,
-            ArrayList<HashMap<String, AssignmentGradebook>> gradebooks) {
-        for (int i = 0; i < coursenames.size() - 1; i++) {
-            continue;
-            // courses.put(coursenames.get(i), new Course(
-            // coursenames.get(i),
-            // courseBlocks.get(i),
-            // gradebooks.get(i),
-            // isPassFailList.get(i)));
-            // }
+        }
+        HashMap<String, Integer> studentGrades = new HashMap<String, Integer>();
+
+        // Student:Gradebook
+        AssignmentGradebook studentGradebook = new AssignmentGradebook(studentGrades);
+
+        // Students:Gradebooks
+        HashMap<String, AssignmentGradebook> biologyGradebook = new HashMap<String, AssignmentGradebook>();
+
+        Course biology = new Course(courseName, biologyGradebook);
+    }
+
+    // private HashMap<String, Integer> initCoursegradebook(ArrayList<Student>
+    // students) {
+    // HashMap<String, Integer> studentGrades = new HashMap<String, Integer>();
+    // for (Student student : students) {
+    // studentGrades.put(student.getName(), student.getGradebook())
+    // }
+
+    // }
+
+    public static void initCourses(ArrayList<Course> courses) {
+
+        for (Course course : courses) {
+            courseList.put(course.getCourseName(), course);
         }
 
     }
 
     public Course getCourse(String courseName) {
-        return courses.get(courseName);
+        return courseList.get(courseName);
     }
 
     public static HashMap<String, Double> getCourseGradesByStudentname(Student student) {
@@ -34,7 +63,7 @@ public class CourseList {
         HashMap<String, Double> studentCourses = new HashMap<String, Double>();
         for (String courseName : student.getCourses()) {
             studentCourses.put(courseName,
-                    courses.get(courseName).getAssignmentsByStudent(student.getStudentName()).getGradeAverage());
+                    courseList.get(courseName).getAssignmentsByStudent(student.getName()).getGradeAverage());
         }
         return studentCourses;
     }

@@ -14,7 +14,6 @@ public class Student {
         this.graduationYear = graduationYear;
 
         this.courses = courses; // !THIS MUST BE INITIALIZED BEFORE GRADEBOOK
-        gradebook = getAssignmentGradebook();
 
     }
 
@@ -22,12 +21,8 @@ public class Student {
         return courses;
     }
 
-    public String getStudentName() {
+    public String getName() {
         return name;
-    }
-
-    private HashMap<String, Double> getAssignmentGradebook() {
-        return CourseList.getCourseGradesByStudentname(this);
     }
 
 }

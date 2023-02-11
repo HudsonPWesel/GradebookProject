@@ -4,19 +4,27 @@ public class AssignmentGradebook {
     private HashMap<String, Integer> gradebook;
     private double gradeAverage;
 
+    /**
+     * 
+     * @param gradebook {assignmentName:Grade}
+     */
     public AssignmentGradebook(HashMap<String, Integer> gradebook) {
         this.gradebook = gradebook;
 
         setGradeAverage();
     }
 
-    public double getGradeAverage() {
-        return this.gradeAverage;
+    public HashMap<String, Integer> getGradebook() {
+        return gradebook;
     }
 
-    public void addAssignment(String assignmentName, int grade) {
-        gradebook.put(assignmentName, grade);
-
+    /**
+     * 
+     * @return avg of grades in current gradebook
+     */
+    public double getGradeAverage() {
+        setGradeAverage();
+        return this.gradeAverage;
     }
 
     private void setGradeAverage() {
@@ -24,6 +32,11 @@ public class AssignmentGradebook {
             return;
 
         gradeAverage = calculateGradeAverage();
+
+    }
+
+    public void addAssignment(String assignmentName, int grade) {
+        gradebook.put(assignmentName, grade);
 
     }
 
@@ -37,7 +50,6 @@ public class AssignmentGradebook {
 
     private boolean isValidGradebook() {
         return gradebook.isEmpty();
-
     }
 
 }

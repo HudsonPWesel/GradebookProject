@@ -16,6 +16,10 @@ public class Course {
         return this.COURSENAME;
     }
 
+    public void addStudent(String studentName) {
+        gradebook.put(studentName, new AssignmentGradebook(null));
+    }
+
     public HashMap<String, AssignmentGradebook> getGradebook() {
         return gradebook;
     }
