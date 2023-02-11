@@ -12,7 +12,7 @@ public class Course {
         this.gradebook = gradebook;
     }
 
-    public String getCourseName() {
+    public String getName() {
         return this.COURSENAME;
     }
 
@@ -20,7 +20,7 @@ public class Course {
         gradebook.put(studentName, new AssignmentGradebook(null));
     }
 
-    public HashMap<String, AssignmentGradebook> getGradebook() {
+    public HashMap<String, AssignmentGradebook> getCourseGradebook() {
         return gradebook;
     }
 

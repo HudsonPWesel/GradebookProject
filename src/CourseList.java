@@ -42,13 +42,13 @@ public class CourseList {
 
     // }
 
-    public static void initCourses(ArrayList<Course> courses) {
+    // public static void initCourses(ArrayList<Course> courses) {
 
-        for (Course course : courses) {
-            courseList.put(course.getCourseName(), course);
-        }
+    // for (Course course : courses) {
+    // courseList.put(course.getCourseName(), course);
+    // }
 
-    }
+    // }
 
     public Course getCourse(String courseName) {
         return courseList.get(courseName);

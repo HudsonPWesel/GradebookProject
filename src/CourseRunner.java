@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class CourseRunner {
 
-    private static HashMap<String, HashMap<String, AssignmentGradebook>> courseList = new HashMap<String, HashMap<String, AssignmentGradebook>>();
+    private static HashMap<String, Course> courseList = new HashMap<String, Course>();
     private static ArrayList<String> courseNames = new ArrayList<String>();
 
     /**
@@ -64,7 +64,7 @@ public class CourseRunner {
 
     }
 
-    public static HashMap<String, HashMap<String, AssignmentGradebook>> getCourseList() {
+    public static HashMap<String, Course> getCourseList() {
         return courseList;
     }
 
@@ -88,17 +88,22 @@ public class CourseRunner {
      * initialize the courseList property
      */
     public static void initCourses() {
+        ArrayList<Course> courses = new ArrayList<Course>();
         ArrayList<String> courseNames = setCourseNames();
         HashMap<String, AssignmentGradebook> studentGradebooks = initStudentGradebooks();
 
-        setCourseList(courseNames, studentGradebooks);
+        for (String courseName : courseNames) {
+            courses.add(new Course(courseName, studentGradebooks));
+        }
+
+        setCourseList(courses);
     }
 
-    private static void setCourseList(ArrayList<String> courseNames,
-            HashMap<String, AssignmentGradebook> studentGradebooks) {
-        for (String courseName : courseNames) {
-            courseList.put(courseName, studentGradebooks);
+    private static void setCourseList(ArrayList<Course> courses) {
+        for (Course course : courses) {
+            courseList.put(course.getName(), course);
         }
+        return;
 
     }
 
@@ -135,8 +140,9 @@ public class CourseRunner {
     public static void main(String[] args) {
 
         CourseRunner.initCourses();
-        System.out.println(CourseRunner.getCourseList());
-        System.out.println(CourseRunner.getCourseList().get("English").get("JAN").calculateGradeAverage());
+        System.out.println(CourseRunner.getCourseList().get("English").getCourseGradebook().get("JAN").getGradebook());
+        // System.out.println(CourseRunner.getCourseList());
+        // System.out.println(CourseRunner.getCourseList().get("English").get("JAN").calculateGradeAverage());
 
     }
 }
